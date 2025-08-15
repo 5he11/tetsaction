@@ -29,10 +29,10 @@
         <!-- AZURE FUNCTION CONFIG -->
         <azure.functions.maven.plugin.version>1.37.1</azure.functions.maven.plugin.version>
         <azure.functions.java.library.version>3.1.0</azure.functions.java.library.version>
-        <functionAppName>functionapp20241114003</functionAppName>
-        <functionAppRegion>eastasia</functionAppRegion>
-        <functionResourceGroup>testykfuncapp</functionResourceGroup>
-        <functionSubscription>61c57429-66be-4425-bf16-65657e848f07</functionSubscription>
+        <functionAppName></functionAppName>
+        <functionAppRegion></functionAppRegion>
+        <functionResourceGroup></functionResourceGroup>
+        <functionSubscription></functionSubscription>
         <functionPricingTier>Flex Consumption</functionPricingTier>
         <stagingDirectory>${project.build.directory}/azure-functions/${functionAppName}</stagingDirectory>
     </properties>
