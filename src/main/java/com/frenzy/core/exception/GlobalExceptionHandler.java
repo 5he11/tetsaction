@@ -33,18 +33,17 @@ public class GlobalExceptionHandler
 
     @ExceptionHandler(Exception.class)
     public AjaxResult handleGlobalException(Exception ex) {
-        return AjaxResult.error(ex.getMessage());
+        return AjaxResult.error(String.format("%s: %s", ex.getClass().getName(), ex.getMessage()));
     }
-
 
     @ExceptionHandler(ServiceException.class)
     public AjaxResult handleGlobalServiceException(Exception ex) {
-        return AjaxResult.error(ex.getMessage());
+        return AjaxResult.error(String.format("%s: %s", ex.getClass().getName(), ex.getMessage()));
     }
 
     @ExceptionHandler(RuntimeException.class)
     public AjaxResult handleGlobalRuntimeException(Exception ex) {
-        return AjaxResult.error(ex.getMessage());
+        return AjaxResult.error(String.format("%s: %s", ex.getClass().getName(), ex.getMessage()));
     }
 
 
