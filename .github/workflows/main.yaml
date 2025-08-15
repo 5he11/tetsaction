@@ -1,0 +1,45 @@
+name: Build and Deploy Azure Function App
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # Required for OIDC
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Set up Maven
+        uses: stCarolas/setup-maven@v4
+        with:
+          maven-version: '3.9.6'
+
+      - name: Build and test with Maven
+        run: mvn clean package --batch-mode
+
+      - name: Azure Login (OIDC)
+        uses: azure/login@v2
+        with:
+          client-id: 8e44cf78-ff56-4d01-869d-aafbaed66e61
+          tenant-id: a466f4d4-9e14-4609-abf5-b43515b3b4cd
+          subscription-id: 61c57429-66be-4425-bf16-65657e848f07
+          enable-AzPSSession: false
+
+      - name: Deploy to Azure Functions via Maven
+        run: mvn azure-functions:deploy
