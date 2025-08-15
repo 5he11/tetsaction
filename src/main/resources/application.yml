@@ -1,0 +1,32 @@
+# Spring??
+spring:
+  profiles:
+    active: dev
+  jackson:
+    date-format: yyyy-MM-dd'T'HH:mm:ss
+    time-zone: GMT+0
+    default-property-inclusion: always
+#  main:
+#    web-application-type: none
+#    cloud:
+#      function:
+#        definition: com.frenzy.FunctionApp
+  fastjson:
+    features: WriteMapNullValue,WriteNullListAsEmpty
+
+# token配置
+token:
+  # 令牌自定义标识，在function中，这个地方必须全部是小写
+  header: authorization
+  # 令牌密钥
+  # 令牌有效期（默认30分钟）5天43200，3天259200，1天86400
+  expireTime: 86400
+
+
+# token配置
+fronttoken:
+  # 令牌自定义标识
+  header: FrontAuthorization
+  # 令牌密钥
+  # 令牌有效期（默认43200分钟）
+  expireTime: 432000

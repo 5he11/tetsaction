@@ -1,0 +1,23 @@
+package ${packageName}.service;
+
+import java.util.List;
+import ${packageName}.app.domain.${ClassName};
+import com.frenzy.core.service.AbstractCosmosService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+/**
+ * ${functionName}Service接口
+ * 
+ * @author ${author}
+ * @date ${datetime}
+ */
+@Slf4j
+@Component
+public class ${ClassName}Service extends AbstractCosmosService<${ClassName}>
+{
+    public ${ClassName}Service() {
+        super(${ClassName}.class);
+    }
+}

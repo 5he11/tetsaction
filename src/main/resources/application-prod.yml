@@ -1,0 +1,14 @@
+app:
+    sys_url: http://dev.msso.dianboguzi.com
+    addressEnabled: true # 获取ip地址开关
+    captchaOn: false # 是否打开登录验证码
+    # 验证码类型 math 数组计算 char 字符验证
+    captchaType: math
+azure:
+    cosmos:
+        endpoint: https://test-comsmos.documents.azure.com:443/
+        database: ToDoList
+        container: Items
+        partition-key-prefix: nb-
+        max-connection-pool-size: 100 # 设置连接池大小
+        idle-connection-timeout: 30

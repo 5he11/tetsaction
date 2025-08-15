@@ -1,0 +1,24 @@
+app:
+    sys_url: http://dev.msso.dianboguzi.com
+    addressEnabled: true # 获取ip地址开关
+    captchaOn: false # 是否打开登录验证码
+    # 验证码类型 math 数组计算 char 字符验证
+    captchaType: math
+azure:
+    cosmos:
+        endpoint: https://test-comsmos.documents.azure.com:443/
+        database: ToDoList
+        container: Items
+        partition-key-prefix: nb-
+        max-connection-pool-size: 100 # 设置连接池大小
+        idle-connection-timeout: 30
+
+spring:
+    #配置rabbitMq 服务器
+    rabbitmq:
+        host: 39.100.74.1
+        port: 5672
+        username: niobium
+        password: yk123456
+        #虚拟host 可以不设置,使用server默认host
+        virtual-host: niobium-print
