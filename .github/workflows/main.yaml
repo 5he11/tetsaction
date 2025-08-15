@@ -39,4 +39,11 @@ jobs:
           enable-AzPSSession: false
 
       - name: Deploy to Azure Functions via Maven
-        run: mvn clean package azure-functions:deploy "-DfunctionAppName=functionapp20241114003" "-DfunctionSubscription=61c57429-66be-4425-bf16-65657e848f07" "-DfunctionResourceGroup=testykfuncapp" "-DfunctionAppRegion=eastasia"
+        id: deploy
+        run: |
+          mvn clean package azure-functions:deploy \
+            "-DfunctionAppName=functionapp20241114003" \
+            "-DfunctionSubscription=61c57429-66be-4425-bf16-65657e848f07" \
+            "-DfunctionResourceGroup=testykfuncapp" \
+            "-DfunctionAppRegion=eastasia" \
+            -Dazure.functions.remoteBuild=true
